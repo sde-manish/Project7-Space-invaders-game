@@ -6,7 +6,16 @@ export default class Enemy {
         this.height = 32;
 
         this.image = new Image();
-        this.Image.src = `images2/enemy${imageNumber}.png`;
+        this.image.src = `images2/enemy${imageNumber}.png`;
 
+    }
+
+    draw(ctx){
+            ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    }
+
+    move(xVelocity, yVelocity){
+        this.x += xVelocity;
+        this.y += yVelocity;
     }
 }
