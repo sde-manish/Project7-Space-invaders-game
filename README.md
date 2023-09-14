@@ -1,2 +1,2 @@
 # Project7-Space invaders game
- Building a space invaders game usiing javascript
+ Building a space invaders game using javascript
