@@ -13,6 +13,14 @@ export default class bulletController {
         this.shootSound = new Audio("audio2/shoot.wav");
         this.shootSound.volume = 0.5;
     }
+
+    draw(ctx){
+        this.bullets.forEach((bullet) => bullet.draw(ctx));
+        if(this.timeTillNextBulletAllowed > 0){
+            this.timeTillNextBulletAllowed--;
+        }
+    }
+
     shoot(x,y,velocity,timeTillNextBulletAllowed = 0){
         if(this.timeTillNextBulletAllowed <= 0 && 
             this.bullets.length < this.maxBulletsAtATime){
@@ -22,6 +30,7 @@ export default class bulletController {
                     this.shootSound.currentTime = 0;
                     this.shootSound.play();
                 }
+                this.timeTillNextBulletAllowed = timeTillNextBulletAllowed;
             }
 
     }
